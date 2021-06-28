@@ -1,0 +1,155 @@
+ext {
+    minSdkVersion = 26
+    targetSdkVersion = 30
+    compileSdkVersion = 30
+    buildToolsVersion = '30.0.2'
+    sourceCompatibilityVersion = "1.8"
+    targetCompatibilityVersion = "1.8"
+    kotlinVersion = '1.5.10'
+    fabricVersion = '1.31.2'
+    supportVersion = '1.2.0-alpha03'
+    gradleBuildToolsVersion = '4.2.1'
+    googlePlayServicesGms = '4.3.3'
+    navigationVersion = '2.3.5'
+    firebaseCrashlyticsGradleVersion = '2.3.0'
+    googleAnalyticsVersion = '4.3.4'
+}
+
+def autoDisposable = "1.0.0"
+def retrofit = '2.7.1'
+def leakCanary = "2.0"
+def glide = '4.11.0'
+def okHttp = '4.2.2'
+def androidX = '2.0.1'
+def kotlinKtxLifecycle = "2.2.0-alpha02"
+def kotlinKtxDataBinding = "3.6.0-alpha04"
+def kotlinKtxCore = "1.2.0-alpha02"
+def kotlinKtxFragment = "1.3.0-alpha03"
+def room_version = "2.3.0"
+def parcelable_version = "0.3.1"
+def koin = "2.1.6"
+def chuck = "1.1.0"
+def facebook = "5.13.0"
+
+ext.deps = [
+
+        // Kotlin
+        "kotlinjre"                   : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+        "kotlinCoroutines"            : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3",
+        "kotlinCoroutinesPlayServices": "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.5",
+
+        //Support in-app updates
+        "inAppUpdates"                : "com.google.android.play:core-ktx:1.8.1",
+
+        // Android X
+        "multiDex"                    : "androidx.multidex:multidex:$androidX",
+        "supportAppCompat"            : "androidx.appcompat:appcompat:1.3.0-alpha01",
+        "recyclerView"                : "androidx.recyclerview:recyclerview:$supportVersion",
+        "constraintLayout"            : 'androidx.constraintlayout:constraintlayout:2.0.0-beta4',
+        "constraintLayoutSolver"      : 'androidx.constraintlayout:constraintlayout:2.0.0-beta4',
+
+        //Maps
+        "mapServices"                 : "com.google.maps:google-maps-services:0.2.7",
+        "mapPlayServices"             : "com.google.android.gms:play-services-maps:17.0.1",
+        "locationService"             : "com.google.android.gms:play-services-location:15.0.1",
+
+        // Android Support
+        "supportDesign"               : "com.google.android.material:material:$supportVersion",
+
+        // koin
+        "koinCore"                    : "io.insert-koin:koin-core:$koin",
+        "koinTest"                    : "io.insert-koin:koin-test:$koin",
+        "koinAndroid"                 : "io.insert-koin:koin-android:$koin",
+        "koinXScope"                  : "io.insert-koin:koin-androidx-scope:$koin",
+        "koinXViewModel"              : "io.insert-koin:koin-androidx-viewmodel:$koin",
+
+        // koin - experimental
+        "koinCoreExperimental"        : "io.insert-koin:koin-core-ext:$koin",
+        "koinAndroidExperimental"     : "io.insert-koin:koin-android-ext:$koin",
+
+        // Kotlin-KTX
+        // https://mvnrepository.com/artifact/androidx
+        "ktxLifecycleExtension"       : "androidx.lifecycle:lifecycle-extensions:$kotlinKtxLifecycle",
+        "ktxDataBinding"              : "androidx.databinding:databinding-common:$kotlinKtxDataBinding",
+        "ktxCore"                     : "androidx.core:core-ktx:$kotlinKtxCore",
+        "fragment"                    : "androidx.fragment:fragment:$kotlinKtxFragment",
+        "ktxFragment"                 : "androidx.fragment:fragment-ktx:$kotlinKtxFragment",
+        "ktxCollection"               : "androidx.collection:collection:1.1.0",
+        "ktxAnnotation"               : "androidx.annotation:annotation:1.1.0",
+        "ktxNavigationFragment"       : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+        "ktxNavigationUI"             : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+
+        // [Android X] - Lifecycle
+        "lifecycleExtension"          : "androidx.lifecycle:lifecycle-extensions:$androidX",
+        "lifecycleAnnotation"         : "androidx.lifecycle:lifecycle-compiler:$androidX",
+
+        // Rx
+        "rxJava"                      : 'io.reactivex.rxjava2:rxjava:2.2.1',
+        "rxAndroid"                   : 'io.reactivex.rxjava2:rxandroid:2.1.0',
+        "rxKotlin"                    : 'io.reactivex.rxjava2:rxkotlin:2.3.0',
+
+        // Firebase
+        "firebaseBoM"                 : "com.google.firebase:firebase-bom:27.1.0",
+        "firebaseAuth"                : "com.google.firebase:firebase-auth-ktx",
+        "firebaseAnalytics"           : "com.google.firebase:firebase-analytics-ktx",
+        "firebaseCrashlytics"         : "com.google.firebase:firebase-crashlytics-ktx",
+        "firebaseRemoteConfig"        : "com.google.firebase:firebase-config-ktx",
+        "firebaseMessaging"           : "com.google.firebase:firebase-messaging-ktx",
+        "firebaseStorage"             : "com.google.firebase:firebase-firestore-ktx",
+
+        // Network
+        "okhttp"                      : "com.squareup.okhttp3:okhttp:$okHttp",
+        "retrofitLogging"             : "com.squareup.okhttp3:logging-interceptor:$okHttp",
+        "retrofit"                    : "com.squareup.retrofit2:retrofit:$retrofit",
+        "retrofitMoshiConverter"      : "com.squareup.retrofit2:converter-moshi:$retrofit",
+        "reactiveNetwork"             : 'com.github.pwittchen:reactivenetwork-rx2:3.0.8',
+        "chuckDebug"                  : "com.readystatesoftware.chuck:library:$chuck",
+        "chuckRelease"                : "com.readystatesoftware.chuck:library-no-op:$chuck",
+
+        // Images
+        "glide"                       : "com.github.bumptech.glide:glide:$glide",
+        "glideRecyclerView"           : "com.github.bumptech.glide:recyclerview-integration:$glide",
+        "glideAnnotation"             : "com.github.bumptech.glide:compiler:$glide",
+        'loupe'                       : "com.igreenwood.loupe:loupe:1.2.1",
+
+        // Parser
+        "moshi"                       : 'com.squareup.moshi:moshi:1.12.0',
+        "moshiCodegen"                : 'com.squareup.moshi:moshi-kotlin-codegen:1.12.0',
+
+        // Logging
+        "timber"                      : 'com.jakewharton.timber:timber:4.7.1',
+
+        // Fonts
+        "calligraphy"                 : 'io.github.inflationx:calligraphy3:3.1.1',
+        "viewPump"                    : 'io.github.inflationx:viewpump:2.0.3',
+
+        // text
+        "justifiedTextView"           : "com.codesgood:justifiedtextview:1.1.0",
+
+        // facebook
+        "facebookLogIn"               : "com.facebook.android:facebook-login:$facebook",
+        "facebookShare"               : "com.facebook.android:facebook-share:$facebook",
+
+        // auth
+        // https://developers.google.com/android/guides/setup
+        "googleServicesAuth"          : "com.google.android.gms:play-services-auth:17.0.0",
+
+        // deep-linking
+        "branchio"                    : "io.branch.sdk.android:library:4.+",
+
+        // twitter
+        "twitter"                     : "org.twitter4j:twitter4j-core:4.0.7",
+
+        // Room
+        "room"                        : "androidx.room:room-runtime:$room_version",
+        "roomCoroutines"              : "androidx.room:room-ktx:$room_version",
+        "roomAnnotation"              : "androidx.room:room-compiler:$room_version",
+        "roomRxJava"                  : "androidx.room:room-rxjava2:$room_version",
+
+        //database
+        "databaseViewer"              : 'com.amitshekhar.android:debug-db:1.0.6',
+
+        //parcelable
+        "parcelable"                  : "com.chrynan.parcelable:parcelable-android:$parcelable_version"
+
+]

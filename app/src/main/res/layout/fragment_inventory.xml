@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.androidapp.elsaborcito.inventory.InventoryViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.androidapp.elsaborcito.inventory.adapter.InventoryListItemAdapter" />
+
+        <variable
+            name="categoryAdapter"
+            type="com.androidapp.elsaborcito.inventory.category_adapter.CategoryListItemAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.07" />
+
+        <View
+            android:id="@+id/topView"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:background="@drawable/ic_wave_ic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/total_products_cv"
+            android:layout_width="160dp"
+            android:layout_height="90dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintRight_toLeftOf="@+id/total_complete_cv"
+            app:layout_constraintTop_toTopOf="@id/top_guide_line">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/total_products"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="@string/total_products"
+                    app:layout_constraintBottom_toTopOf="@id/guide_line"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="clip_horizontal"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:text="@{viewModel.totalProducts}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/total_products"
+                    tools:text="2" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_line"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/total_complete_cv"
+            android:layout_width="160dp"
+            android:layout_height="90dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintLeft_toRightOf="@+id/total_products_cv"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line"
+            app:layout_constraintTop_toTopOf="@id/top_guide_line">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/total_cost_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="@string/total_cost"
+                    app:layout_constraintBottom_toTopOf="@id/guide_line_cost"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/total_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="clip_horizontal"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:text="@{viewModel.totalCost}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/total_cost_title"
+                    tools:text="Q.2.00" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_line_cost"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_bigx"
+            android:background="@null"
+            android:hint="@string/search_by_name"
+            android:imeOptions="actionSearch"
+            android:importantForAutofill="no"
+            android:inputType="textFilter"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textCursorDrawable="@drawable/search_text_cursor"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintRight_toRightOf="@+id/clear_search_button"
+            app:layout_constraintTop_toBottomOf="@id/view5" />
+
+        <ImageView
+            android:id="@+id/clear_search_button"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="@id/search"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line"
+            app:layout_constraintTop_toTopOf="@id/search" />
+
+        <ImageView
+            android:id="@+id/edit_category_img"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:onClick="@{v -> viewModel.onEditCategoryImgClick()}"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@+id/search" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_list"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/search_cards_list_card_row_height"
+            android:orientation="horizontal"
+            android:nestedScrollingEnabled="true"
+            android:layout_marginTop="@dimen/margin_normal"
+            app:adapter="@{categoryAdapter}"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toTopOf="@id/edit_category_img"
+            app:layout_constraintLeft_toRightOf="@id/edit_category_img"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line"
+            app:layout_constraintBottom_toBottomOf="@id/edit_category_img"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_item_category"
+            tools:itemCount="5" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="15dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guide_line"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@+id/edit_category_img"
+            tools:listitem="@layout/list_item_inventory" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/curve_button"
+            android:onClick="@{(v)-> viewModel.onCreateProductButtonClick()}"
+            android:text="@string/create_product"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/bottom_guide_line" />
+
+        <include
+            layout="@layout/inc_progress"
+            app:loadingState="@{viewModel}" />
+
+        <include
+            layout="@layout/inc_message"
+            app:message="@{String.format(@string/message_empty)}"
+            app:showMessage="@{viewModel.showMessage}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_small">5dp</dimen>
+    <dimen name="margin_smallx">8dp</dimen>
+    <dimen name="margin_normal">10dp</dimen>
+    <dimen name="margin_normalx">13dp</dimen>
+    <dimen name="margin_big">15dp</dimen>
+    <dimen name="margin_bigx">18dp</dimen>
+    <dimen name="margin_huge">20dp</dimen>
+    <dimen name="margin_hugex">23dp</dimen>
+    <dimen name="margin_hugexx">25dp</dimen>
+
+    <!-- ## Specific   -->
+    <dimen name="margin_thirty">30dp</dimen>
+    <dimen name="margin_forty">40dp</dimen>
+
+</resources>

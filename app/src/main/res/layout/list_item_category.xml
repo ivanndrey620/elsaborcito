@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="viewModel"
+            type="com.androidapp.elsaborcito.inventory.category_adapter.CategoryListItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/search_cards_list_card_width"
+        android:layout_marginEnd="10dp"
+        android:layout_height="@dimen/search_cards_list_card_height">
+
+        <Button
+            android:id="@+id/categoryButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@{viewModel.category.isChecked() ? ContextCompat.getDrawable(categoryButton.getContext(), viewModel.curveBackground) : ContextCompat.getDrawable(categoryButton.getContext(), viewModel.categoryBackground) }"
+            android:text="@{viewModel.category.data.name}"
+            android:textAllCaps="false"
+            android:onClick="@{v -> viewModel.listener.onItemListClickListener(viewModel.category, viewModel.position)}"
+            android:textColor="@{viewModel.category.isChecked() ? ContextCompat.getColor(categoryButton.getContext(), viewModel.black) : ContextCompat.getColor(categoryButton.getContext(), viewModel.white) }"
+            android:fontFamily="@font/roboto_black"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Ver todos" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

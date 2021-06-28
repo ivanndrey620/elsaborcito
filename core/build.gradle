@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    // kotlin
+    api rootProject.ext.deps.kotlinjre
+    api rootProject.ext.deps.kotlinCoroutinesPlayServices
+
+    // androidx
+    api rootProject.ext.deps.multiDex
+    api rootProject.ext.deps.supportAppCompat
+    api rootProject.ext.deps.recyclerView
+
+    // logging
+    api rootProject.ext.deps.timber
+
+    // fonts
+    api rootProject.ext.deps.calligraphy
+    api rootProject.ext.deps.viewPump
+
+    // glide
+    api rootProject.ext.deps.glide
+    api rootProject.ext.deps.glideRecyclerView
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    kapt rootProject.ext.deps.glideAnnotation
+
+    // koin
+    api rootProject.ext.deps.koinCore
+    api rootProject.ext.deps.koinAndroid
+    api rootProject.ext.deps.koinXScope
+    api rootProject.ext.deps.koinXViewModel
+
+    // RxJava, RxAndroid, RxKotlin
+    api rootProject.ext.deps.rxJava
+    api rootProject.ext.deps.rxAndroid
+    api rootProject.ext.deps.rxKotlin
+
+    // kotlin ktx
+    api rootProject.ext.deps.ktxLifecycleExtension
+    api rootProject.ext.deps.ktxDataBinding
+    api rootProject.ext.deps.fragment
+    api rootProject.ext.deps.ktxFragment
+    api rootProject.ext.deps.ktxAnnotation
+    api rootProject.ext.deps.ktxNavigationFragment
+    api rootProject.ext.deps.ktxNavigationUI
+}

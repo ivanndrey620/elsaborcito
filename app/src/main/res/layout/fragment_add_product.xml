@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.androidapp.elsaborcito.add_product.AddProductViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{v-> viewModel.onBackgroundViewClick()}"
+        android:background="@color/black">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <!-- Screen Title -->
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/add_product"
+            android:textColor="@color/white"
+            android:textSize="@dimen/screen_title_size"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintTop_toTopOf="@id/top_guide_line" />
+
+        <TextView
+            android:id="@+id/sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/insert_product"
+            android:textColor="@color/white"
+            android:textSize="@dimen/screen_sub_title_size"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:src="@drawable/ic_check"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintLeft_toRightOf="@id/title" />
+
+        <!-- [Field] Name -->
+
+        <TextView
+            android:id="@+id/name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_thirty"
+            android:fontFamily="@font/roboto_black"
+            android:text="@string/product_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/sub_title" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:background="@null"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/product_name_hint"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords"
+            android:nextFocusDown="@+id/available_field"
+            android:paddingTop="@dimen/margin_normal"
+            android:text="@={viewModel.productName}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintTextCreateAccount"
+            android:textSize="@dimen/text_size_xnormal"
+            app:layout_constraintLeft_toRightOf="@+id/name_icon"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/name_title" />
+
+        <ImageView
+            android:id="@+id/name_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toTopOf="@+id/name_bottom_line"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/name_title" />
+
+        <View
+            android:id="@+id/name_bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <!-- [Field] Email -->
+
+        <TextView
+            android:id="@+id/email_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_thirty"
+            android:fontFamily="@font/roboto_black"
+            android:text="@string/available"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <EditText
+            android:id="@+id/available_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:background="@null"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/available_hint"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:nextFocusDown="@+id/price_field"
+            android:paddingTop="@dimen/margin_normal"
+            android:text="@={viewModel.available}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintTextCreateAccount"
+            android:textSize="@dimen/text_size_xnormal"
+            app:layout_constraintLeft_toRightOf="@+id/email_icon"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/email_title" />
+
+        <ImageView
+            android:id="@+id/email_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toTopOf="@+id/email_bottom_line"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/email_title" />
+
+        <View
+            android:id="@+id/email_bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/available_field" />
+
+        <!-- [Field] Price -->
+
+        <TextView
+            android:id="@+id/price_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_thirty"
+            android:fontFamily="@font/roboto_black"
+            android:text="@string/price"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/available_field" />
+
+        <EditText
+            android:id="@+id/price_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:background="@null"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/available_hint"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:nextFocusDown="@id/sale_price_field"
+            android:paddingTop="@dimen/margin_normal"
+            android:text="@={viewModel.price}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintTextCreateAccount"
+            android:textSize="@dimen/text_size_xnormal"
+            app:layout_constraintLeft_toRightOf="@+id/price_icon"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/price_title" />
+
+        <ImageView
+            android:id="@+id/price_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toTopOf="@+id/price_bottom_line"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/price_title" />
+
+        <View
+            android:id="@+id/price_bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/price_field" />
+
+        <!-- [Field] Sale Price -->
+
+        <TextView
+            android:id="@+id/sale_price_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_thirty"
+            android:fontFamily="@font/roboto_black"
+            android:text="@string/sale_price"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/price_field" />
+
+        <EditText
+            android:id="@+id/sale_price_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:background="@null"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/available_hint"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:paddingTop="@dimen/margin_normal"
+            android:text="@={viewModel.salePrice}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintTextCreateAccount"
+            android:textSize="@dimen/text_size_xnormal"
+            app:layout_constraintLeft_toRightOf="@+id/sale_price_icon"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/sale_price_title" />
+
+        <ImageView
+            android:id="@+id/sale_price_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toTopOf="@+id/sale_price_bottom_line"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/sale_price_title" />
+
+        <View
+            android:id="@+id/sale_price_bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/sale_price_field" />
+
+
+        <!-- [Field] Category -->
+
+        <TextView
+            android:id="@+id/category_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_thirty"
+            android:fontFamily="@font/roboto_black"
+            android:text="@string/category"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/sale_price_field" />
+
+        <EditText
+            android:id="@+id/category_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="false"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/category_hint"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:onClick="@{v-> viewModel.showCategoryFragment()}"
+            android:paddingTop="@dimen/margin_normal"
+            android:text="@={viewModel.categoryProduct}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintTextCreateAccount"
+            android:textSize="@dimen/text_size_xnormal"
+            app:layout_constraintLeft_toRightOf="@+id/category_icon"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/category_title"
+            app:okKeyboardClickListener="@{viewModel.okKeyboardClickListener}" />
+
+        <ImageView
+            android:id="@+id/category_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toTopOf="@+id/category_bottom_line"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/category_title" />
+
+        <View
+            android:id="@+id/category_bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintLeft_toRightOf="@id/left_guide_line"
+            app:layout_constraintRight_toLeftOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/category_field" />
+
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guide_line"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line"
+            app:layout_constraintTop_toTopOf="@id/top_guide_line" />
+
+        <include
+            layout="@layout/inc_progress"
+            app:loadingState="@{viewModel}" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/curve_button"
+            android:onClick="@{(v) -> viewModel.onAddButtonClick()}"
+            android:text="@{viewModel.buttonText}"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="@{viewModel.showContent ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

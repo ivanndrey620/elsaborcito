@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ## Screen Title   -->
+    <dimen name="screen_title_size">28sp</dimen>
+    <dimen name="screen_sub_title_size">14sp</dimen>
+
+    <!-- ## Log In -->
+    <dimen name="log_in_header">40sp</dimen>
+
+    <!--  ## General Text Size  -->
+    <dimen name="text_size_tiny">8sp</dimen>
+    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_xsmall">12sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_xnormal">16sp</dimen>
+    <dimen name="text_size_xxnormal">18sp</dimen>
+    <dimen name="text_size_big">20sp</dimen>
+    <dimen name="text_size_xxbig">24sp</dimen>
+
+    <!-- No Content -->
+    <dimen name="no_content_size">24sp</dimen>
+
+</resources>

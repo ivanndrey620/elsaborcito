@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ## Gradients   -->
+    <dimen name="log_in_background_gradient">0.66</dimen>
+    <dimen name="water_girl_background_gradient">0.42</dimen>
+    <dimen name="girl_bottle_car_background_gradient">0.72</dimen>
+
+    <!-- ## Log In  -->
+    <dimen name="rect_outline_button_height">35dp</dimen>
+    <dimen name="tos_button_height">25dp</dimen>
+    <dimen name="log_in_field_margin">10dp</dimen>
+    <dimen name="log_in_field_top_margin">20dp</dimen>
+    <dimen name="log_in_social_network_login_icon">40dp</dimen>
+    <dimen name="log_in_brand_bottom_margin">10dp</dimen>
+    <dimen name="log_in_brand_underline_bottom_margin">35dp</dimen>
+    <dimen name="log_in_brand_underline_height">2dp</dimen>
+
+    <!-- ## Progress Bar & Snack Bar -->
+    <dimen name="progressbar_height_width">56dp</dimen>
+
+    <!-- Search -->
+    <dimen name="search_button_corner_radius">15dp</dimen>
+    <dimen name="search_bar_height">40dp</dimen>
+
+    <!-- ## Home  -->
+    <dimen name="home_favorite_icon">35dp</dimen>
+    <dimen name="home_favorite_badge">15dp</dimen>
+    <dimen name="home_tab_icon_size">15dp</dimen>
+
+    <!-- ## Detail -->
+    <dimen name="detail_bottom_padding">60dp</dimen>
+
+    <!-- ## Feed  -->
+    <dimen name="feed_logo_size">32dp</dimen>
+    <dimen name="feed_image_height">270dp</dimen>
+    <dimen name="feed_share_icon_size">22dp</dimen>
+    <dimen name="feed_favorite_icon_size">28dp</dimen>
+
+    <dimen name="search_cards_list_card_row_height">55dp</dimen>
+    <dimen name="search_cards_list_card_height">45dp</dimen>
+    <dimen name="search_cards_list_card_width">107dp</dimen>
+    <dimen name="search_tab_layout_height">35dp</dimen>
+
+
+
+</resources>

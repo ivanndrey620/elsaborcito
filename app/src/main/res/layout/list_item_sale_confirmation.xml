@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.androidapp.elsaborcito.sale_confirmation.adapter.SaleConfirmationListItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_black"
+            android:text="@{viewModel.item.name}"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/quantity"
+            app:layout_constraintTop_toTopOf="@id/delete"
+            app:layout_constraintBottom_toBottomOf="@id/delete"
+            tools:text="Galletas de Avena" />
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_black"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/product_name"
+            app:layout_constraintRight_toLeftOf="@+id/sub_total"
+            app:layout_constraintTop_toTopOf="@id/delete"
+            app:layout_constraintBottom_toBottomOf="@id/delete"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/sub_total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_black"
+            android:gravity="end"
+            android:text="@{viewModel.item.name}"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintLeft_toRightOf="@id/quantity"
+            app:layout_constraintRight_toLeftOf="@id/delete"
+            app:layout_constraintTop_toTopOf="@id/delete"
+            app:layout_constraintBottom_toBottomOf="@id/delete"
+            tools:text="1.50" />
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="30dp"
+            android:onClick="@{(v)-> viewModel.listener.onItemListClickListener(viewModel.item, viewModel.position)}"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintLeft_toRightOf="@id/sub_total"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

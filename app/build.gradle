@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'org.jetbrains.kotlin.android.extensions'
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+
+    defaultConfig {
+        applicationId "com.androidapp.elsaborcito"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation rootProject.ext.deps.supportDesign
+    implementation rootProject.ext.deps.constraintLayout
+    implementation rootProject.ext.deps.constraintLayoutSolver
+
+    // firebase
+    implementation platform(rootProject.ext.deps.firebaseBoM)
+    implementation rootProject.ext.deps.firebaseStorage
+
+
+    implementation 'com.github.kittinunf.fuel:fuel:2.1.0'
+    implementation 'com.github.kittinunf.fuel:fuel-android:2.1.0'
+
+    // internal
+    implementation project(path: ':api')
+    implementation project(path: ':core')
+}

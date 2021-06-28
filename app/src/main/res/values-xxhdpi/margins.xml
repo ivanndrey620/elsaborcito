@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_small">3dp</dimen>
+    <dimen name="margin_smallx">6dp</dimen>
+    <dimen name="margin_normal">8dp</dimen>
+    <dimen name="margin_normalx">11dp</dimen>
+    <dimen name="margin_big">13dp</dimen>
+    <dimen name="margin_bigx">16dp</dimen>
+    <dimen name="margin_huge">18dp</dimen>
+    <dimen name="margin_hugex">21dp</dimen>
+    <dimen name="margin_hugexx">23dp</dimen>
+
+    <!-- ## Specific   -->
+    <dimen name="margin_thirty">28dp</dimen>
+
+</resources>

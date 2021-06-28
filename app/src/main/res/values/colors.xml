@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#161616</color>
+    <color name="colorPrimaryDark">#9B0303</color>
+    <color name="colorAccent">#d81b60</color>
+    <color name="colorPrimaryText">#FFFFFF</color>
+    <color name="colorSecondaryText">#7580D0</color>
+    <color name="colorHint">#D2D2D2</color>
+    <color name="window_background">#000000</color>
+
+    <color name="background">#f2f2f2</color>
+    <color name="yellow">#fdc928</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="hintTextCreateAccount">#D1D3D4</color>
+
+    <color name="search_no_content_grey">#6D6E71</color>
+    <color name="search_no_content_blue">#4C86FE</color>
+    <color name="gray">#BCBEC0</color>
+
+
+    <color name="grey">#37000000</color>
+    <color name="bg_grey">#F2F2F2</color>
+    <color name="bg_grey_dark">#E5E5E5</color>
+
+    <!-- Circle ProgressBar-->
+    <color name="ripple_color">#13aee7</color>
+    <color name="black">#000000</color>
+
+    <!-- Summary-->
+    <color name="red">#f44236</color>
+    <color name="blue">#3e70c9</color>
+    <color name="pink">#F6CADB</color>
+    <color name="green">#4FD985</color>
+    <color name="orange">#f59345</color>
+    <color name="orange_dark">#FF9800</color>
+    <color name="yellow_dark">#bf9d37</color>
+    <color name="yellow_tenue">#f4ce66</color>
+    <color name="ratingBarColor">#fdc928</color>
+    <color name="nav_header_background">#EBEBF1</color>
+    <color name="blue_grey">#30303b</color>
+    <color name="grey_material">#E1E1E1</color>
+    <color name="open_bg">#e7ebff</color>
+    <color name="open_word">#1b66ee</color>
+    <color name="close_bg">#ffe7ed</color>
+    <color name="close_word">#ee1b50</color>
+    <color name="colorWhite">#FFFFFF</color>
+</resources>

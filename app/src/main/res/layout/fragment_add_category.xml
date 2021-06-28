@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="viewModel"
+            type="com.androidapp.elsaborcito.add_category.AddCategoryViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_grey">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/left_guide_line"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/right_guide_line"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/middle_guide_line"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:background="@null"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/add_category_name"
+                android:imeOptions="actionDone"
+                android:inputType="textCapWords"
+                android:nextFocusDown="@+id/available_field"
+                android:paddingTop="@dimen/margin_normal"
+                android:text="@={viewModel.categoryName}"
+                android:textColor="@color/black"
+                android:textColorHint="@color/search_no_content_grey"
+                android:textSize="@dimen/text_size_xxbig"
+                app:layout_constraintBottom_toTopOf="@id/middle_guide_line"
+                app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+                app:layout_constraintRight_toRightOf="@id/right_guide_line" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey"
+                app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+                app:layout_constraintRight_toRightOf="@id/right_guide_line"
+                app:layout_constraintTop_toTopOf="@id/middle_guide_line" />
+
+            <Button
+                android:id="@+id/create"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="40dp"
+                android:clickable="false"
+                android:enabled="false"
+                android:onClick="@{(v) -> viewModel.onCreateButtonClick()}"
+                android:text="@string/create"
+                android:textAllCaps="false"
+                android:textColor="@color/search_no_content_grey"
+                app:background="@drawable/disabled_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+                app:layout_constraintRight_toRightOf="@id/right_guide_line"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_close"
+                android:onClick="@{v-> viewModel.onCloseFragment()}"
+                app:layout_constraintLeft_toRightOf="@id/right_guide_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                layout="@layout/inc_progress"
+                app:loadingState="@{viewModel}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

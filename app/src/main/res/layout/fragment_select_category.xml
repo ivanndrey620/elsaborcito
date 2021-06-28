@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.androidapp.elsaborcito.select_category.SelectCategoryViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.androidapp.elsaborcito.select_category.adapter.SelectCategoryListItemAdapter" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="20dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_bigx"
+            android:background="@null"
+            android:hint="@string/search_by_name"
+            android:imeOptions="actionSearch"
+            android:importantForAutofill="no"
+            android:inputType="textFilter"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:textCursorDrawable="@drawable/search_text_cursor"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintRight_toRightOf="@+id/clear_search_button"
+            app:layout_constraintTop_toBottomOf="@id/top_guide_line" />
+
+        <ImageView
+            android:id="@+id/clear_search_button"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="@id/search"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line"
+            app:layout_constraintTop_toTopOf="@id/search" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="15dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guide_line"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line"
+            app:layout_constraintTop_toBottomOf="@+id/search"
+            tools:listitem="@layout/list_item_select_category" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/curve_button"
+            android:onClick="@{(v) -> viewModel.onAddButtonClick()}"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/left_guide_line"
+            app:layout_constraintRight_toRightOf="@id/right_guide_line" />
+
+
+        <include
+            layout="@layout/inc_progress"
+            app:loadingState="@{viewModel}" />
+
+        <include
+            layout="@layout/inc_message"
+            app:message="@{String.format(@string/message_empty)}"
+            app:showMessage="@{viewModel.showMessage}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
